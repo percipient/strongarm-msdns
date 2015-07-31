@@ -1,5 +1,5 @@
-strongarm-msdns is written and maintained by Stephen DiCato, Percipient
-Networks, LLC, and various contributors:
+strongarm-msdns is written and maintained by Percipient Networks, LLC, and
+various contributors:
 
 Authors & Maintainers
 `````````````````````
