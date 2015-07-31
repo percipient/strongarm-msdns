@@ -1,6 +1,6 @@
 import wmi
 
-from stronglib.dns_integration import (DnsBlackholeUpdaterException,
+from strongarm.dns_integration import (DnsBlackholeUpdaterException,
                                        DnsBlackholeIncrementalUpdater)
 
 
@@ -130,7 +130,7 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
 
         return failed
 
-    def delete_domains(self, domains):
+    def remove_domains(self, domains):
         failed = []
         for domain in domains:
             zones = self.wmi.MicrosoftDNS_Zone(ContainerName=domain)
