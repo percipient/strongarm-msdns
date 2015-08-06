@@ -31,10 +31,13 @@ tests_require = [
 
 
 install_requires = [
-    'pywin32==219',
     'stronglib',
     'WMI==1.4.9',
 ]
+# pywin32 can only be installed on a windows machine, so don't include it on
+# other platforms.
+if sys.platform == 'win32':
+    install_requires.append('pywin32==219')
 
 
 def version():
