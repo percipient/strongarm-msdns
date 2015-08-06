@@ -29,6 +29,9 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
     def __init__(self, blackhole_ip, server='localhost'):
         super(MicrosoftDnsUpdater, self).__init__(blackhole_ip, server)
 
+        # Whether we need to reload all zones for a blackhole ip change.
+        self.need_reload = False
+
         self.wmi = wmi.WMI(server, namespace="MicrosoftDNS")
 
         # Find the master blackhole zone by container name.
@@ -106,6 +109,13 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
             record.Modify(IPAddress=self.blackhole_ip)
             self.save_master_zone_to_file()
 
+            # Mark that reloading all zones is needed on update.
+            self.need_reload = True
+
+    def update_domains(self, domains):
+        failed = []
+
+        if self.need_reload:
             # Reload blackholed domains from the updated master zone file.
             zones = self.wmi.MicrosoftDNS_Zone(DataFile=self.MASTER_ZONE_FILE)
             for zone in zones:
@@ -113,10 +123,12 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
                     continue  # Skip the master zone itself.
                 try:
                     zone.ReloadZone()
-                # TODO: If the zone is already temporarily locked for updates,
-                # we get an error.
                 except wmi.x_wmi:
-                    pass
+                    failed.append(zone.ContainerName)
+
+            self.need_reload = False
+
+        return failed + super(MicrosoftDnsUpdater, self).update_domains(domains)
 
     def add_domains(self, domains):
         failed = []
