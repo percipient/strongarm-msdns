@@ -27,6 +27,14 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
     MASTER_ZONE_FILE = MASTER_ZONE + '.dns'
 
     def __init__(self, blackhole_ip, server='localhost'):
+        """
+        Create or verify the master DNS zone with the provided blackhole IP.
+
+        If the updater is not running on the DNS server, provide the `server`
+        argument to specify which host to connect WMI to.
+
+        """
+
         super(MicrosoftDnsUpdater, self).__init__(blackhole_ip, server)
 
         # Whether we need to reload all zones for a blackhole ip change.
