@@ -62,7 +62,7 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
             self.master = self.wmi.MicrosoftDNS_Zone(ContainerName=self.MASTER_ZONE)[0]
 
         except (wmi.x_wmi, IndexError):
-            raise ActiveDirectoryDnsBlackhole("Failed to create master zone.")
+            raise MicrosoftDnsException("Failed to create master zone.")
 
         self.create_master_record()
         self.save_master_zone_to_file()
@@ -78,13 +78,13 @@ class MicrosoftDnsUpdater(DnsBlackholeIncrementalUpdater):
                     DnsServerName=self.server, ContainerName=self.MASTER_ZONE,
                     OwnerName=self.MASTER_ZONE, IPAddress=self.blackhole_ip)
         except wmi.x_wmi:
-            raise ActiveDirectoryDnsException("Failed to create A record.")
+            raise MicrosoftDnsException("Failed to create A record.")
 
     def save_master_zone_to_file(self):
         try:
             self.master.WriteBackZone()
         except wmi.x_wmi:
-            raise ActiveDirectoryDnsException("Failed to write zone file.")
+            raise MicrosoftDnsException("Failed to write zone file.")
 
     def verify_master_record_ip(self):
         """
