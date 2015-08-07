@@ -8,7 +8,7 @@ provided by the `STRONGARM API <https://strongarm.percipientnetworks.com/api/>`_
 .. image:: https://travis-ci.org/percipient/strongarm-msdns.svg?branch=master
     :target: https://travis-ci.org/percipient/strongarm-msdns
 
-.. image:: https://coveralls.io/repos/percipient/strongarm-msdns/badge.svg?branch=master
+.. image:: https://coveralls.io/repos/percipient/strongarm-msdns/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/percipient/strongarm-msdns
 
 features
