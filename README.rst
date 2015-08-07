@@ -5,10 +5,16 @@ strongarm-msdns is `STRONGARM <http://strongarm.io>`_'s Microsoft DNS
 integration that updates DNS zones according to the list of blackholed domains
 provided by the `STRONGARM API <https://strongarm.percipientnetworks.com/api/>`_.
 
+.. image:: https://travis-ci.org/percipient/strongarm-msdns.svg?branch=master
+    :target: https://travis-ci.org/percipient/strongarm-msdns
+
+.. image:: https://coveralls.io/repos/percipient/strongarm-msdns/badge.svg?branch=master
+    :target: https://coveralls.io/github/percipient/strongarm-msdns
+
 features
 --------
 
-- fetch blackholed domains from STRONGARM API through 
+- fetch blackholed domains from STRONGARM API through
   `stronglib <https://github.com/percipient/stronglib>`_.
 - create DNS zones in Microsoft DNS to blackhole domains
 - reload existing blackholed domains to different blackhole IP
