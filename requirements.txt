@@ -1,0 +1,6 @@
+# Install stronglib from github before it's available on PyPI.
+https://github.com/percipient/stronglib/tarball/master
+
+# Install the current directory as an editable package. Denpendencies required
+# for installing the package and running unit tests are defined in setup.py.
+-e .
