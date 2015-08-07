@@ -1,5 +1,5 @@
 """
-strongarm_dns - Microsoft DNS integration for STRONGARM
+strongarm_msdns - Microsoft DNS integration for STRONGARM
 
 """
 
