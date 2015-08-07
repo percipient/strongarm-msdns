@@ -24,7 +24,7 @@ class PyTest(TestCommand):
 
 
 tests_require = [
-    'mock==1.3.0',
+    'mock>=1.0.1',
     'pytest>=2.6.4',
     'pytest-cov==1.8.1',
 ]
