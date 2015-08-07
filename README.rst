@@ -22,17 +22,25 @@ features
 installation
 ------------
 
-strongarm-msdns is still in beta. The **latest development version** can be
-installed directly from GitHub:
+strongarm-msdns is still in beta. We plan to provide a pre-built Windows
+installer to make the installation process easy. In the meantime:
+
+1. Install `Python <https://www.python.org/downloads/>`_ and
+   `pywin32 <http://sourceforge.net/projects/pywin32/files/>`_.
+
+2. Install the **latest development version** of strongarm-msdns directly from
+   GitHub using pip:
 
 .. code-block:: bash
 
     $ pip install --upgrade https://github.com/percipient/strongarm-msdns/tarball/master
 
-A Windows installer or executable is coming soon.
-
 usage
 -----
+
+We plan to provide a Windows service that runs the updater automatically. In
+the meantime, you can run the updater manually in Python on a Microsoft DNS
+server with WMI enabled:
 
 .. code-block:: python
 
@@ -43,6 +51,9 @@ usage
 
     # Run the updater with STRONGARM API key.
     dns_updater.run(your_key)
+
+DNS zones will be created for all domains fetched from the STRONGARM API. The
+call returns a list of domain names that failed to be blackholed.
 
 contribute
 ----------
