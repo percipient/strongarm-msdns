@@ -15,6 +15,7 @@ class ConfigTestCase(unittest.TestCase):
         """Return a mock_open that supports readline."""
         m = mock.mock_open(read_data=text)
         m.return_value.readline.side_effect = text.split('\n')
+        m.return_value.__iter__ = lambda _: iter(text.split('\n'))
         return m
 
     def test_read_config(self):
