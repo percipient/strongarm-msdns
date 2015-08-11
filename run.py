@@ -1,4 +1,5 @@
-from strongarm_msdns import config, MicrosoftDnsException, MicrosoftDnsUpdater
+from strongarm_msdns import config
+from strongarm_msdns.msdns import MicrosoftDnsException, MicrosoftDnsUpdater
 
 try:
     settings = config.read_config()

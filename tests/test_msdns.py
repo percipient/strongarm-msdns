@@ -36,7 +36,7 @@ class MicrosoftDnsTestCase(unittest.TestCase):
 
         """
 
-        from strongarm_msdns import MicrosoftDnsUpdater
+        from strongarm_msdns.msdns import MicrosoftDnsUpdater
 
         master_mock = mock.MagicMock()
 
@@ -76,7 +76,7 @@ class MicrosoftDnsTestCase(unittest.TestCase):
 
         """
 
-        from strongarm_msdns import MicrosoftDnsUpdater, MicrosoftDnsException
+        from strongarm_msdns.msdns import MicrosoftDnsUpdater, MicrosoftDnsException
 
         # Make the query return an empty list both times it's called.
         self.wmi_mock.MicrosoftDNS_Zone.side_effect = [[], []]
@@ -91,7 +91,7 @@ class MicrosoftDnsTestCase(unittest.TestCase):
 
         """
 
-        from strongarm_msdns import MicrosoftDnsUpdater, MicrosoftDnsException
+        from strongarm_msdns.msdns import MicrosoftDnsUpdater, MicrosoftDnsException
 
         master_mock = mock.MagicMock()
         self.wmi_mock.MicrosoftDNS_Zone.side_effect = [[], [master_mock]]
@@ -110,7 +110,7 @@ class MicrosoftDnsTestCase(unittest.TestCase):
 
         """
 
-        from strongarm_msdns import MicrosoftDnsUpdater, MicrosoftDnsException
+        from strongarm_msdns.msdns import MicrosoftDnsUpdater, MicrosoftDnsException
 
         master_mock = mock.MagicMock()
         self.wmi_mock.MicrosoftDNS_Zone.side_effect = [[], [master_mock]]
@@ -128,7 +128,7 @@ class MicrosoftDnsTestCase(unittest.TestCase):
 
         """
 
-        from strongarm_msdns import MicrosoftDnsUpdater
+        from strongarm_msdns.msdns import MicrosoftDnsUpdater
 
         master_mock = mock.MagicMock()
         self.wmi_mock.MicrosoftDNS_Zone.return_value = [master_mock]
@@ -151,7 +151,7 @@ class MicrosoftDnsTestCase(unittest.TestCase):
 
         """
 
-        from strongarm_msdns import MicrosoftDnsUpdater
+        from strongarm_msdns.msdns import MicrosoftDnsUpdater
 
         master_mock = mock.MagicMock()
         self.wmi_mock.MicrosoftDNS_Zone.return_value = [master_mock]

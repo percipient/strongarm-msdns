@@ -44,7 +44,7 @@ server with WMI enabled:
 
 .. code-block:: python
 
-    from strongarm_msdns import MicrosoftDnsUpdater
+    from strongarm_msdns.msdns import MicrosoftDnsUpdater
 
     # Initialize updater with blackhole IP.
     dns_updater = MicrosoftDnsUpdater('127.0.0.1')
