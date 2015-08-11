@@ -24,7 +24,7 @@ from a configuration file on disk, follow these steps on a Windows machine:
 
    .. code-block:: powershell
 
-       $ pyinstaller strongarm_msdns\run.py
+       $ pyinstaller run.py
 
    This creates the folder ``dist\run``, which contains the executable
    ``run.exe`` and all supporting files.
